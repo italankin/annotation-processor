@@ -1,0 +1,9 @@
+apply plugin: 'java'
+
+dependencies {
+    compileOnly project.project('stub')
+    compile 'com.android.support:support-annotations:27.0.2'
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
