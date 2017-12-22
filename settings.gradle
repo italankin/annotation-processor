@@ -1,1 +1,1 @@
-include ':mvp-base', ':mvp-base:stub', ':mvp-processor', ':mvp-android'
+include ':mvp-base', ':mvp-base:stub', ':mvp-processor', ':mvp-android', ':example'
