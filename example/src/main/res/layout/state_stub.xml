@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="32dp"
+    tools:parentTag="android.widget.LinearLayout">
+
+    <android.support.v4.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="5"/>
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:lines="2"
+        android:textSize="20sp"
+        tools:text="Empty\nlist"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:minWidth="128dp"
+        android:visibility="invisible"
+        tools:text="Refresh"
+        tools:visibility="visible"/>
+
+    <android.support.v4.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="4"/>
+
+</merge>
