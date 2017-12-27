@@ -1,0 +1,10 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.italankin.mvp.example">
+
+    <application
+        android:name=".DebugApp"
+        android:vmSafeMode="true"
+        tools:replace="android:name"/>
+
+</manifest>
