@@ -1,6 +1,7 @@
 package com.italankin.mvp;
 
 import com.google.auto.service.AutoService;
+import com.italankin.mvp.annotation.GenerateViewState;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,10 +24,8 @@ import javax.lang.model.util.Elements;
 import javax.lang.model.util.Types;
 import javax.tools.Diagnostic;
 
-import com.italankin.mvp.annotation.GenerateViewState;
-
 @AutoService(Processor.class)
-@SupportedAnnotationTypes("GenerateViewState")
+@SupportedAnnotationTypes("com.italankin.mvp.annotation.GenerateViewState")
 public class MvpProcessor extends AbstractProcessor {
 
     private Types typeUtils;
