@@ -12,7 +12,7 @@ interface FlickrApi {
     Observable<InterestingnessResponse> interestingness(
             @Query("api_key") String apiKey,
             @Query("page") int page,
-            @Query("perpage") int perPage
+            @Query("per_page") int perPage
     );
 
 }
