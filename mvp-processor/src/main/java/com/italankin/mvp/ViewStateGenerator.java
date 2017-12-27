@@ -127,8 +127,16 @@ public class ViewStateGenerator {
             if (!strategies.contains(strategy)) {
                 strategies.add(strategy);
             }
-            methodBuilder.addStatement("$L.apply($L, $S, new $N($L))",
-                    strategyRefName(strategy), "presenter", getCommandTag(method), command, methodArgs(method));
+            String tag = getCommandTag(method);
+            String strategyRefName = strategyRefName(strategy);
+            String methodArgs = methodArgs(method);
+            if (tag != null) {
+                methodBuilder.addStatement("$L.apply($L, $S, new $N($L))",
+                        strategyRefName, "presenter", Tag.NO_TAG.equals(tag) ? null : tag, command, methodArgs);
+            } else {
+                methodBuilder.addStatement("$L.apply($L, $L, new $N($L))",
+                        strategyRefName, "presenter", "presenter.defaultTag()", command, methodArgs);
+            }
 
             // add method
             methodSpecs.add(methodBuilder.build());
@@ -303,11 +311,7 @@ public class ViewStateGenerator {
      */
     private static String getCommandTag(ExecutableElement method) {
         Tag annotation = method.getAnnotation(Tag.class);
-        if (annotation == null) {
-            return null;
-        }
-        String value = annotation.value();
-        return Tag.NO_TAG.equals(value) ? null : value;
+        return annotation == null ? null : annotation.value();
     }
 
     @NonNull
