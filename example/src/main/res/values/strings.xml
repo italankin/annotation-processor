@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Mvp Example</string>
+    <string name="app_name">MVP Example</string>
+    <string name="error">An error occurred</string>
+    <string name="retry">Retry</string>
 </resources>

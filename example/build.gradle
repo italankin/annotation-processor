@@ -11,7 +11,9 @@ android {
         versionCode 1
         versionName "1.0"
 
-        buildConfigField("String", "FLICKR_API_KEY", "\"TODO\"")
+        Properties props = new Properties()
+        props.load(project.file('app.properties').newInputStream())
+        buildConfigField("String", "FLICKR_API_KEY", "\"${props.getProperty("FLICKR_API_KEY")}\"")
     }
 
     buildTypes {
@@ -31,7 +33,11 @@ dependencies {
     implementation 'com.android.support:cardview-v7:27.0.2'
     implementation 'com.android.support:recyclerview-v7:27.0.2'
 
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
     implementation project(':mvp-android')
+    implementation project(':mvp-base')
     annotationProcessor project(':mvp-processor')
 
     implementation 'com.squareup.picasso:picasso:2.5.2'
@@ -48,4 +54,5 @@ dependencies {
 
     implementation 'com.google.dagger:dagger:2.11'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
+    compileOnly 'javax.annotation:jsr250-api:1.0'
 }

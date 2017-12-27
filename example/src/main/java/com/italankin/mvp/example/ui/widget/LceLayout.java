@@ -158,7 +158,7 @@ public class LceLayout extends FrameLayout {
 
         @CheckResult(suggest = "show()")
         public Builder reload(@Nullable OnClickListener listener) {
-            return reload(null, listener);
+            return reload(R.string.retry, listener);
         }
 
         @CheckResult(suggest = "show()")
@@ -191,6 +191,7 @@ public class LceLayout extends FrameLayout {
         final View entering = mAddedViews.get(layer);
         mVisibleLayer = layer;
         bringChildToFront(entering);
+        syncLayerVisibility();
     }
 
     private void syncLayerVisibility() {
