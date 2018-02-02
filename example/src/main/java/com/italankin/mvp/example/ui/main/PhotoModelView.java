@@ -6,8 +6,10 @@ class PhotoModelView {
     public final String id;
     public final String url;
     public final String viewsCount;
+    public final Photo photo;
 
     PhotoModelView(Photo photo) {
+        this.photo = photo;
         id = photo.id;
         url = photo.urlLarge;
         viewsCount = String.valueOf(photo.views);

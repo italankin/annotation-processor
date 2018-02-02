@@ -1,5 +1,6 @@
 package com.italankin.mvp.example.ui.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import com.italankin.mvp.example.App;
 import com.italankin.mvp.example.R;
 import com.italankin.mvp.example.ui.base.AppActivity;
+import com.italankin.mvp.example.ui.main.detail.DetailActivity;
 import com.italankin.mvp.example.ui.widget.LceLayout;
 import com.italankin.mvp.example.ui.widget.LoadMoreListener;
 
@@ -63,7 +65,8 @@ public class MainActivity extends AppActivity<MainPresenter> implements IMainVie
     public void renderData(List<PhotoModelView> data) {
         PhotosAdapter adapter = new PhotosAdapter(this, data);
         adapter.setListener((modelView, position) -> {
-            // TODO
+            Intent intent = DetailActivity.getStartIntent(this, modelView.photo);
+            startActivity(intent);
         });
         list.setAdapter(adapter);
         lce.showContent();
