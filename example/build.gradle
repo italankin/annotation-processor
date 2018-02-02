@@ -12,7 +12,12 @@ android {
         versionName "1.0"
 
         Properties props = new Properties()
-        props.load(project.file('app.properties').newInputStream())
+        def file = project.file('app.properties')
+        if (!file.exists()) {
+            throw new IllegalStateException("Create file '${file.absolutePath}' and provide 'FLICKR_API_KEY' property " +
+                    "with your Flickr API key")
+        }
+        props.load(file.newInputStream())
         buildConfigField("String", "FLICKR_API_KEY", "\"${props.getProperty("FLICKR_API_KEY")}\"")
     }
 
